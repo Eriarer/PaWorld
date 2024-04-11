@@ -1,5 +1,8 @@
 # PaWorld
 
+This is a university project for web develpment using anuglar.
+This project has been developed solely for the purpose of learning.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
 
 ## Development server
