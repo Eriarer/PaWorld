@@ -1,0 +1,5 @@
+<p>test works!</p>
+
+<input #entrada type="number" placeholder="Introduce el ID del animal">
+<button (click)="obtenerMascota(+ entrada.value)">Buscar</button>
+<p [innerHTML]="mascotas"></p>

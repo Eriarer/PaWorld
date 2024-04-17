@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Mascota } from '../../interfaces/mascota';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MascotasService {
-  mascotas: Mascotas[] = [
+  private mascotas: Mascota[] = [
     {
       id: 1,
       edad: 1,
@@ -107,18 +108,22 @@ export class MascotasService {
     }
   ];
 
-  constructor() {
-    console.log(JSON.stringify(this.mascotas));
-  }
-}
+  constructor() { }
 
-interface Mascotas {
-  id: number;
-  edad: number;
-  color: string;
-  tipo: string;//gato o perro
-  raza: string;//pitbull, siames, etc
-  fechaIngreso: Date;//la fecha en la que llego
-  descripcion: string;
-  imagen: string;
+  getMascotas(): Mascota[] {
+    return this.mascotas;
+  }
+
+  getMascotaById(id: number): any {
+    return this.mascotas.find((mascota) => mascota.id === id);
+  }
+
+  getMascotasByTipo(tipo: string): Mascota[] {//Devuelve todos los tipo "perro" o "gato"
+    return this.mascotas.filter((mascota) => mascota.tipo.toLowerCase() === tipo.toLocaleLowerCase());
+  }
+
+  getMascotasByRaza(raza: string): Mascota[] {
+    return this.mascotas.filter((mascota) => mascota.raza.toLowerCase() === raza.toLowerCase());
+  }
+
 }
