@@ -1,1 +1,71 @@
-<p>navbar works!</p>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    [ngClass]="{ hidden: !(isHandset$ | async) }"
+    fixedInViewport="false"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar color="primary" style="background-color: #3e51b4"
+      >Menu</mat-toolbar
+    >
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home" class="sideItem">
+        <span [ngClass]="{ sideactive: inicioActive }">{{ inicio }}</span>
+      </a>
+      <a mat-list-item routerLink="/mascota" class="sideItem">
+        <span [ngClass]="{ sideactive: petsActive }">{{ pets }}</span>
+      </a>
+      <a mat-list-item routerLink="/agenda" class="sideItem">
+        <span [ngClass]="{ sideactive: agendaActive }">{{ agenda }}</span>
+      </a>
+      <a mat-list-item routerLink="/cita" class="sideItem">
+        <span [ngClass]="{ sideactive: citasActive }">{{ citas }}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="d-flex align-items-center">
+        <img src="../../../assets/img/favIcon.webp" />
+      </button>
+      <span>PaWorld</span>
+      <span class="spacer"></span>
+      @if (isHandset$ | async) {
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      }@else{
+      <a mat-button routerLink="/home">
+        <span class="navItem" [ngClass]="{ active: inicioActive }">
+          {{ inicio }}
+        </span>
+      </a>
+      <a mat-button routerLink="/mascota">
+        <span class="navItem" [ngClass]="{ active: petsActive }">
+          {{ pets }}
+        </span>
+      </a>
+      <a mat-button routerLink="/agenda">
+        <span class="navItem" [ngClass]="{ active: agendaActive }">
+          {{ agenda }}
+        </span>
+      </a>
+      <a mat-button routerLink="/cita">
+        <span class="navItem mx-2" [ngClass]="{ active: citasActive }">
+          {{ citas }}
+        </span>
+      </a>
+      }
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
