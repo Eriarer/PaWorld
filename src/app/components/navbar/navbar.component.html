@@ -24,6 +24,19 @@
       <a mat-list-item routerLink="/cita" class="sideItem">
         <span [ngClass]="{ sideactive: citasActive }">{{ citas }}</span>
       </a>
+      <span mat-list-item>
+        <form class="d-flex flex-row align-items-center" role="search">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="Buscar"
+            aria-label="Buscar"
+          />
+          <button mat-icon-button type="submit">
+            <mat-icon fontIcon="search"></mat-icon>
+          </button>
+        </form>
+      </span>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -31,7 +44,7 @@
       <button mat-icon-button class="d-flex align-items-center">
         <img src="../../../assets/img/favIcon.webp" />
       </button>
-      <span>PaWorld</span>
+      <span id="brandName">PaWorld</span>
       <span class="spacer"></span>
       @if (isHandset$ | async) {
       <button
@@ -63,6 +76,17 @@
           {{ citas }}
         </span>
       </a>
+      <form class="d-flex flex-row align-items-center" role="search">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Buscar"
+          aria-label="Buscar"
+        />
+        <button mat-icon-button type="submit">
+          <mat-icon fontIcon="search"></mat-icon>
+        </button>
+      </form>
       }
     </mat-toolbar>
     <!-- Add Content Here -->

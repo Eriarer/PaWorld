@@ -9,6 +9,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-navbar',
@@ -23,6 +26,9 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
     MatIconModule,
     AsyncPipe,
     CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     RouterModule
   ]
 })

@@ -26,7 +26,6 @@
 
 .navItem{
   color: rgb(208, 218, 218);
-  font-size: 1.5em;
 }
 
 .active{
@@ -35,4 +34,17 @@
 
 .sideactive{
   font-weight: bolder;
+}
+
+input[type="search"]{
+  font-size: 15px;
+  width: 150px;
+  height: 35px;
+}
+
+@media (max-width: 730px) {
+  #brandName{
+    display: none;
+  } 
+  
 }
