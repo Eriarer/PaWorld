@@ -1,1 +1,28 @@
-<p>mascota works!</p>
+<div class="container">
+  <div class="masonry">
+    @for(mascota of mascotas; track mascota){
+    <mat-card class="masonry-card">
+      <img
+        mat-card-image
+        [src]="mascota.imagen"
+        [alt]="'Foto de ' + mascota.tipo + ' de raza ' + mascota.raza"
+        class="masonry-image"
+      />
+      <mat-card-header class="text-center">
+        <mat-card-title>{{ mascota.raza }}</mat-card-title>
+        <mat-card-subtitle>Raza</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p [innerHTML]="mascota.descripcion"></p>
+      </mat-card-content>
+      <mat-card-actions>
+        <span
+          class="small"
+          [innerHTML]="'Ingreso ' + formatoFecha(mascota.fechaIngreso)"
+        ></span>
+        <button mat-flat-button color="accent">Saber más</button>
+      </mat-card-actions>
+    </mat-card>
+    }
+  </div>
+</div>
