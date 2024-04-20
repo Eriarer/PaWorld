@@ -1,1 +1,45 @@
-<p>agenda works!</p>
+<div class="contenedor">
+    <div id="dataPet">
+        <img class="imgMascota" src={{imagen}} alt="...">
+        <div id="petInfo">
+            <div id="btnMascota">
+            <button id="btnAnt" (click)="AnteriorMascota()" mat-flat-button color="primary"><</button>
+            <button id="btnSig" (click)="SiguienteMascota()" mat-flat-button color="primary">></button>
+            </div>
+            <p>Raza: {{raza}}</p>
+            <div class="petInfoRow">
+                <p class="dato">Edad:{{edad}}</p>
+                <p class="dato">Color: {{color}}</p>
+            </div>
+            <p>Tiempo en el refugio: {{tiempoRefugio}} días</p>
+        </div>
+    </div>
+
+    <div  id="dataAdop">
+        <div>
+            <hr>
+            <h3 class="center">Ingresa tus datos</h3>
+            <div class="dato">
+                <p>Nombre:</p>
+                <input #nombre matNativeControl>
+            </div>
+            <div class="dato">
+                <p >Teléfono:</p>
+                <input type="number" #telefono matNativeControl>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Fecha de cita</mat-label>
+                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" disabled> 
+                    <mat-hint>MM/DD/AAAA</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker  #picker disabled="false"></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="btnAc">
+            <button id="btnDeleteData" mat-flat-button color="warn">Borrar datos</button>
+            <button id="btnAgendar" mat-flat-button color="primary">Agendar</button>
+        </div>
+    </div>
+</div>

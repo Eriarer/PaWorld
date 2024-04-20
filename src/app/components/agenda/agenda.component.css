@@ -1,0 +1,60 @@
+.dato{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+p{
+    margin: 0;
+}
+.center{
+    text-align: center;
+}
+
+.contenedor{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#dataAdop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.imgMascota{
+    height: 20rem;
+    margin: 10px;
+}
+
+#petInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.petInfoRow{
+    display:flex;
+    justify-content:space-between; 
+}
+
+.btnAc{
+    margin-top: 50px;
+}
+
+#btnAnt, #btnSig, #btnDeleteData, #btnAgendar{
+    margin: 5px;
+}
+
+
+@media (max-width: 730px){
+    .contenedor{
+        flex-direction: column;
+    }
+}
