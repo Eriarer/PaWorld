@@ -42,6 +42,12 @@ input[type="search"]{
   height: 35px;
 }
 
+.navbar{
+  z-index: 500 !important;
+  padding: 0;
+  margin: 0;
+}
+
 @media (max-width: 730px) {
   #brandName{
     display: none;
