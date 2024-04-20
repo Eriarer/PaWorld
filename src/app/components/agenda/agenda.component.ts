@@ -9,12 +9,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
 import { Mascota } from '../../interfaces/mascota';
+import { Cita } from '../../interfaces/cita';
+import { Adoptante } from '../../interfaces/adoptante';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
+import { merge } from 'rxjs';
 
 @Component({
   selector: 'app-agenda',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatSlideToggleModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatButtonModule, MatTooltipModule, MatIconModule],
+  imports: [MatSlideToggleModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatButtonModule, MatTooltipModule, MatIconModule, FormsModule, ReactiveFormsModule,  MatIconModule],
   templateUrl: './agenda.component.html',
   styleUrl: './agenda.component.css'
 })
@@ -35,6 +40,14 @@ export class AgendaComponent {
   minDate!: Date;
   maxDate!: Date;
 
+  //Para almacennar datos de la cita
+  dataAdoptante!: Adoptante;
+  dataCita!: Cita;
+  nombreAdop = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
+  errorMessage = '';
+  telAdop = new FormControl('', [Validators.required, Validators.pattern('[0-9]{10}'), Validators.minLength(10),Validators.maxLength(10)]);
+  errorMessage2 = '';
+
   constructor(public mascotasService: MascotasService) { 
     this.mascota = mascotasService.getMascotaById(1);
     console.log(JSON.stringify(this.mascota));
@@ -44,6 +57,18 @@ export class AgendaComponent {
     this.minDate=new Date(fechaActual.getFullYear(),fechaActual.getMonth(),fechaActual.getDate()+1);
     //La fecha máxima es la fecha actual +1 mes
     this.maxDate=new Date(fechaActual.getFullYear(),fechaActual.getMonth()+1,fechaActual.getDate());
+
+    //Manejo de errores en el formulario
+    merge(this.nombreAdop.statusChanges, this.nombreAdop.valueChanges)
+    .pipe(takeUntilDestroyed())
+    .subscribe(() => this.updateErrorMessage());
+
+    merge(this.telAdop.statusChanges, this.telAdop.valueChanges)
+    .pipe(takeUntilDestroyed())
+    .subscribe(() => this.updateErrorMessage2());
+
+    
+
   }
 
   ngOnInit(): void {
@@ -54,6 +79,8 @@ export class AgendaComponent {
     this.descripcion=this.mascota.descripcion;
     this.imagen=this.mascota.imagen;
     console.log(this.imagen);
+
+    
   }
 
   //función para calcular el tiempo en el refugio del animal
@@ -98,6 +125,26 @@ export class AgendaComponent {
     this.tiempoRefugio=this.GettiempoRefugio();
     this.descripcion=this.mascota.descripcion;
     this.imagen=this.mascota.imagen;
+  }
+
+  //Funciones para el manejo de errores
+  updateErrorMessage() {
+    if (this.nombreAdop.hasError('required')) {
+      this.errorMessage = 'Debes ingresar un valor';
+    } else if (this.nombreAdop.hasError('pattern')) {
+      this.errorMessage = 'Nombre invalido';
+    } else {
+      this.errorMessage = '';
+    }
+  }
+  updateErrorMessage2(){
+    if (this.telAdop.hasError('required')) {
+      this.errorMessage2 = 'Debes ingresar un valor';
+    } else if (this.telAdop.hasError('pattern')) {
+      this.errorMessage2 = 'Teléfono invalido';
+    } else {
+      this.errorMessage2 = '';
+    }
   }
 
   //Función para guardar datos de la cita en el localstorage

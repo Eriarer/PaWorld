@@ -20,7 +20,7 @@ p{
     margin-bottom: 20px;
 }
 
-#dataAdop{
+#SecAdop, .dataAdop{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,4 +57,11 @@ p{
     .contenedor{
         flex-direction: column;
     }
+}
+
+/* Estilos para ocultar botones del input type:number */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

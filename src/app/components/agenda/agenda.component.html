@@ -15,26 +15,41 @@
         </div>
     </div>
 
-    <div  id="dataAdop">
-        <div>
-            <hr>
-            <h3 class="center">Ingresa tus datos</h3>
-            <div class="dato">
-                <p>Nombre:</p>
-                <input #nombre matNativeControl>
-            </div>
-            <div class="dato">
-                <p >Teléfono:</p>
-                <input type="number" #telefono matNativeControl>
-            </div>
+    <div  id="SecAdop">
+        <div class="dataAdop">
+           <h3 class="center"><strong>Ingresa tus datos</strong></h3>
+            <mat-form-field>
+                <mat-label>Nombre Completo</mat-label>
+                <input matInput
+                    [formControl]="nombreAdop"
+                    (blur)="updateErrorMessage()"
+                required>
+                <mat-icon matSuffix>person</mat-icon>
+                @if (nombreAdop.invalid) {
+                <mat-error>{{errorMessage}}</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Teléfono</mat-label>
+                <input matInput
+                type="number"
+                [formControl]="telAdop"
+                (blur)="updateErrorMessage2()"
+                required
+                >
+                <mat-icon matSuffix>phone</mat-icon>
+            @if (telAdop.invalid) {
+            <mat-error>{{errorMessage2}}</mat-error>
+            }
+            </mat-form-field>
             <div>
                 <mat-form-field>
                     <mat-label>Fecha de cita</mat-label>
-                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" disabled> 
+                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" disabled>
                     <mat-hint>MM/DD/AAAA</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker  #picker disabled="false"></mat-datepicker>
-                </mat-form-field>
+                    <mat-datepicker #picker disabled="false"></mat-datepicker>
+                  </mat-form-field>
             </div>
         </div>
         <div class="btnAc">
