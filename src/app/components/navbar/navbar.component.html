@@ -29,10 +29,15 @@
           <input
             class="form-control"
             type="search"
-            placeholder="Buscar"
-            aria-label="Buscar"
+            name="search"
+            placeholder="Perros o gatos??"
+            aria-label="Buscar entre perros y mascotas"
+            [(ngModel)]="search"
+            (keyup.enter)="searchPet()"
+            list="dataFiltro"
+            autocomplete="off"
           />
-          <button mat-icon-button type="submit">
+          <button mat-icon-button (click)="searchPet()">
             <mat-icon fontIcon="search"></mat-icon>
           </button>
         </form>
@@ -80,10 +85,15 @@
         <input
           class="form-control"
           type="search"
-          placeholder="Buscar"
-          aria-label="Buscar"
+          name="search"
+          placeholder="Perros o gatos??"
+          aria-label="Buscar entre perros y mascotas"
+          [(ngModel)]="search"
+          (keyup.enter)="searchPet()"
+          list="dataFiltro"
+          autocomplete="off"
         />
-        <button mat-icon-button type="submit">
+        <button mat-icon-button (click)="searchPet()">
           <mat-icon fontIcon="search"></mat-icon>
         </button>
       </form>
@@ -93,3 +103,7 @@
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<datalist id="dataFiltro">
+  <option value="Perro"></option>
+  <option value="Gato"></option>
+</datalist>
