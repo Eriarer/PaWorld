@@ -14,7 +14,7 @@ export class MascotasService {
       raza: "Labrador Retriever",
       fechaIngreso: new Date("2024-02-20"),
       descripcion: "El Labrador Retriever es conocido por ser un perro muy juguetón, amigable y adaptable. Son excelentes compañeros para familias y tienen una naturaleza cariñosa.",
-      imagen: "../../../assets/img/1.webp"
+      imagen: "../../../assets/img/pets/1.webp"
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ export class MascotasService {
       raza: "Pastor Alemán",
       fechaIngreso: new Date("2023-11-02"),
       descripcion: "El Pastor Alemán es un perro muy protector y leal que estará contigo siempre. Son inteligentes, valientes y se destacan en roles de trabajo, como perros policía o de rescate.",
-      imagen: "../../../assets/img/2.webp"
+      imagen: "../../../assets/img/pets/2.webp"
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ export class MascotasService {
       raza: "Bulldog Francés",
       fechaIngreso: new Date("2023-01-15"),
       descripcion: "El Bulldog Francés es conocido por su personalidad juguetona y su apariencia única. Son perros pequeños y robustos que se llevan bien en apartamentos o casas con poco espacio.",
-      imagen: "../../../assets/img/3.webp"
+      imagen: "../../../assets/img/pets/3.webp"
     },
     {
       id: 4,
@@ -44,7 +44,7 @@ export class MascotasService {
       raza: "Golden Retriever",
       fechaIngreso: new Date("2023-04-30"),
       descripcion: "El Golden Retriever es un perro cariñoso, amigable y lleno de energía. Son excelentes compañeros para familias activas y son conocidos por su amor por el agua y su disposición para aprender.",
-      imagen: "../../../assets/img/4.webp"
+      imagen: "../../../assets/img/pets/4.webp"
     },
     {
       id: 5,
@@ -54,7 +54,7 @@ export class MascotasService {
       raza: "Beagle",
       fechaIngreso: new Date("2022-10-12"),
       descripcion: "El Beagle es un perro alegre, activo y curioso. Tienen un olfato excepcional y disfrutan explorando su entorno. Son excelentes mascotas para familias y les encanta estar en compañía.",
-      imagen: "../../../assets/img/5.webp"
+      imagen: "../../../assets/img/pets/5.webp"
     },
     {
       id: 6,
@@ -64,7 +64,7 @@ export class MascotasService {
       raza: "Siamese",
       fechaIngreso: new Date("2023-09-20"),
       descripcion: "El gato Siamés es conocido por su apariencia elegante y su personalidad extrovertida. Son muy vocales y disfrutan interactuando con sus dueños. También son inteligentes y juguetones.",
-      imagen: "../../../assets/img/6.webp"
+      imagen: "../../../assets/img/pets/6.webp"
     },
     {
       id: 7,
@@ -74,7 +74,7 @@ export class MascotasService {
       raza: "Persa",
       fechaIngreso: new Date("2021-10-02"),
       descripcion: "El gato Persa es conocido por su pelaje largo y denso, así como por su naturaleza tranquila y cariñosa. Son ideales para personas que buscan un compañero de pelaje suave y temperamento dulce.",
-      imagen: "../../../assets/img/7.webp"
+      imagen: "../../../assets/img/pets/7.webp"
     },
     {
       id: 8,
@@ -84,7 +84,7 @@ export class MascotasService {
       raza: "Maine Coon",
       fechaIngreso: new Date("2023-03-11"),
       descripcion: "El Maine Coon es una raza de gato grande y musculoso con un pelaje exuberante y una cola larga y tupida. Son gatos amigables, inteligentes y se llevan bien con niños y otras mascotas.",
-      imagen: "../../../assets/img/8.webp"
+      imagen: "../../../assets/img/pets/8.webp"
     },
     {
       id: 9,
@@ -94,7 +94,7 @@ export class MascotasService {
       raza: "British Shorthair",
       fechaIngreso: new Date("2023-06-29"),
       descripcion: "El British Shorthair es un gato de tamaño mediano a grande con una estructura robusta y un pelaje denso y suave. Son gatos tranquilos, afectuosos y disfrutan de momentos de tranquilidad junto a sus dueños.",
-      imagen: "../../../assets/img/9.webp"
+      imagen: "../../../assets/img/pets/9.webp"
     },
     {
       id: 10,
@@ -104,7 +104,7 @@ export class MascotasService {
       raza: "Bengal",
       fechaIngreso: new Date("2024-01-10"),
       descripcion: "El gato Bengal es conocido por su pelaje manchado y su apariencia similar a la de un leopardo. Son gatos activos, curiosos y les gusta jugar. También pueden formar vínculos fuertes con sus dueños.",
-      imagen: "../../../assets/img/10.webp"
+      imagen: "../../../assets/img/pets/10.webp"
     }
   ];
 
