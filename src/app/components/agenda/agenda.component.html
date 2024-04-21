@@ -47,10 +47,11 @@
                 <mat-form-field>
                     <mat-label>Fecha de cita</mat-label>
                     <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" disabled>
-                    <mat-hint>MM/DD/AAAA</mat-hint>
+                    <mat-hint>DD/MM/AAAA</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker disabled="false"></mat-datepicker>
                   </mat-form-field>
+
             </div>
             <br>
             <div>

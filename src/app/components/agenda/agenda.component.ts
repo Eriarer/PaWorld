@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MascotasService } from '../../services/data/mascotas.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -14,12 +14,47 @@ import { Adoptante } from '../../interfaces/adoptante';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import { merge } from 'rxjs';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSelectModule} from '@angular/material/select';
+import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatDatepickerIntl } from '@angular/material/datepicker';
+import 'moment/locale/fr';
+
+// Define custom date format for fr locale
+export const FR_DATE_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @Component({
   selector: 'app-agenda',
   standalone: true,
-  providers: [provideNativeDateAdapter()],
-  imports: [MatSlideToggleModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatButtonModule, MatTooltipModule, MatIconModule, FormsModule, ReactiveFormsModule,  MatIconModule],
+  providers: [provideNativeDateAdapter(), { provide: MAT_DATE_LOCALE, useValue: 'fr' },
+  provideMomentDateAdapter(),
+  { provide: MAT_DATE_FORMATS, useValue: FR_DATE_FORMATS },],
+  imports: [
+    MatSlideToggleModule, 
+    MatFormFieldModule, 
+    MatInputModule, 
+    MatDatepickerModule, 
+    MatButtonModule, 
+    MatTooltipModule, 
+    MatIconModule, 
+    FormsModule, 
+    ReactiveFormsModule,  
+    MatIconModule,
+    MatDividerModule,
+    MatSelectModule,
+    MatFormFieldModule, MatInputModule, MatDatepickerModule
+  ],
   templateUrl: './agenda.component.html',
   styleUrl: './agenda.component.css'
 })
@@ -39,6 +74,10 @@ export class AgendaComponent {
   //datos para el calendario
   minDate!: Date;
   maxDate!: Date;
+  //Para formatear la fecha (DD/MM/YYYY)
+  private _adapter!: DateAdapter<any>;
+  private _intl!: MatDatepickerIntl;
+  @Inject(MAT_DATE_LOCALE) private _locale!: string;
 
   //Para almacennar datos de la cita
   dataAdoptante!: Adoptante;
@@ -66,9 +105,6 @@ export class AgendaComponent {
     merge(this.telAdop.statusChanges, this.telAdop.valueChanges)
     .pipe(takeUntilDestroyed())
     .subscribe(() => this.updateErrorMessage2());
-
-    
-
   }
 
   ngOnInit(): void {
