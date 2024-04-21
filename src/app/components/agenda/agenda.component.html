@@ -1,15 +1,16 @@
 <div class="contenedor">
     <div id="dataPet">
-        <img class="imgMascota" src={{imagen}} alt="...">
+        <img class="imgMascota" src={{mascota.imagen}} alt="...">
         <div id="petInfo">
             <div id="btnMascota">
             <button id="btnAnt" (click)="AnteriorMascota()" mat-flat-button color="primary"><</button>
             <button id="btnSig" (click)="SiguienteMascota()" mat-flat-button color="primary">></button>
             </div>
-            <p>Raza: {{raza}}</p>
+            <p>Raza: {{mascota.raza}}</p>
+            <p>Sexo: {{mascota.sexo}} </p>
             <div class="petInfoRow">
-                <p class="dato">Edad:{{edad}}</p>
-                <p class="dato">Color: {{color}}</p>
+                <p class="dato">Edad:{{mascota.edad}}</p>
+                <p class="dato">Color: {{mascota.color}}</p>
             </div>
             <p>Tiempo en el refugio: {{tiempoRefugio}} días</p>
         </div>
@@ -46,43 +47,42 @@
             <div>
                 <mat-form-field>
                     <mat-label>Fecha de cita</mat-label>
-                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" disabled>
+                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" (dateChange)="onDateChange($event)" #selectedDate>
                     <mat-hint>DD/MM/AAAA</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker disabled="false"></mat-datepicker>
-                  </mat-form-field>
-
+                </mat-form-field>
             </div>
             <br>
             <div>
                 <mat-form-field>
                     <mat-label>Horario</mat-label>
-                    <mat-select>
-                      <mat-option value="10">10:00</mat-option>
-                      <mat-option value="10.3">10:30</mat-option>
-                      <mat-option value="11">11:00</mat-option>
-                      <mat-option value="11.3">11:30</mat-option>
-                      <mat-option value="12">12:00</mat-option>
-                      <mat-option value="12.3">12:30</mat-option>
-                      <mat-option value="13">13:00</mat-option>
-                      <mat-option value="13.3">13:30</mat-option>
-                      <mat-option value="14">14:00</mat-option>
-                      <mat-option value="14.3">14:30</mat-option>
-                      <mat-option value="15">15:00</mat-option>
-                      <mat-option value="15.3">15:30</mat-option>
-                      <mat-option value="16">16:00</mat-option>
-                      <mat-option value="16.3">16:30</mat-option>
-                      <mat-option value="17">17:00</mat-option>
-                      <mat-option value="17.3">17:30</mat-option>
-                      <mat-option value="18">18:00</mat-option>
-                      <mat-option value="18.3">18:30</mat-option>
+                    <mat-select [(ngModel)]="selectedHour">
+                      <mat-option value="10:00">10:00</mat-option>
+                      <mat-option value="10:30">10:30</mat-option>
+                      <mat-option value="11:00">11:00</mat-option>
+                      <mat-option value="11:30">11:30</mat-option>
+                      <mat-option value="12:00">12:00</mat-option>
+                      <mat-option value="12:30">12:30</mat-option>
+                      <mat-option value="13:00">13:00</mat-option>
+                      <mat-option value="13:30">13:30</mat-option>
+                      <mat-option value="14:00">14:00</mat-option>
+                      <mat-option value="14:30">14:30</mat-option>
+                      <mat-option value="15:00">15:00</mat-option>
+                      <mat-option value="15:30">15:30</mat-option>
+                      <mat-option value="16:00">16:00</mat-option>
+                      <mat-option value="16:30">16:30</mat-option>
+                      <mat-option value="17:00">17:00</mat-option>
+                      <mat-option value="17:30">17:30</mat-option>
+                      <mat-option value="18:00">18:00</mat-option>
+                      <mat-option value="18:30">18:30</mat-option>
                     </mat-select>
                   </mat-form-field>
             </div>
         </div>
         <div class="btnAc">
             <button id="btnDeleteData" mat-flat-button color="warn">Borrar datos</button>
-            <button id="btnAgendar" mat-flat-button color="primary">Agendar</button>
+            <button id="btnAgendar" mat-flat-button color="primary" (click)="GuardarCita()">Agendar</button>
         </div>
     </div>
 </div>
