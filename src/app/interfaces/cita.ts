@@ -1,8 +1,11 @@
+import { Time } from "@angular/common";
 import { Adoptante } from "./adoptante";
 import { Mascota } from "./mascota";
 
 export interface Cita {
-    fechaHora: Date;
+    id: number;
+    fecha: Date;
+    hora: Time;
     adoptante: Adoptante;
     mascota: Mascota;
 }
