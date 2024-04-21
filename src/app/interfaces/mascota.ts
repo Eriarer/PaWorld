@@ -7,4 +7,5 @@ export interface Mascota {
     fechaIngreso: Date;//la fecha en la que llego
     descripcion: string;
     imagen: string;
+    sexo: string;//macho o hembra
 }
