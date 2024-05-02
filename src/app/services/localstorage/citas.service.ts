@@ -15,6 +15,7 @@ export class CitasService {
     {
       id: 1,
       fecha: new Date('2021-10-10'),
+      formatoFecha: '',
       hora: {hours: 10, minutes: 30},
       adoptante:{
         nombre: 'Juan',
@@ -25,6 +26,7 @@ export class CitasService {
     {
       id: 2,
       fecha: new Date('2021-10-10'),
+      formatoFecha: '',
       hora: {hours: 11, minutes: 30},
       adoptante:{
         nombre: 'Maria',
@@ -35,6 +37,7 @@ export class CitasService {
     {
       id: 3,
       fecha: new Date('2021-10-10'),
+      formatoFecha: '',
       hora: {hours: 12, minutes: 30},
       adoptante:{
         nombre: 'Pedro',
@@ -45,6 +48,7 @@ export class CitasService {
     {
       id: 4,
       fecha: new Date('2021-10-10'),
+      formatoFecha: '',
       hora: {hours: 13, minutes: 30},
       adoptante:{
         nombre: 'Ana',
@@ -55,6 +59,7 @@ export class CitasService {
     {
       id: 5,
       fecha: new Date('2021-10-10'),
+      formatoFecha: '',
       hora: {hours: 14, minutes: 30},
       adoptante:{
         nombre: 'Luis',
@@ -97,6 +102,7 @@ export class CitasService {
     return{
       id:this.citas.length+1,
       fecha: new Date(),
+      formatoFecha: '',
       hora: {hours: 0, minutes: 0},
       adoptante:{
         nombre: '',
