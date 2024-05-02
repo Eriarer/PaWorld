@@ -5,9 +5,10 @@ import { MascotaComponent } from './components/mascota/mascota.component';
 import { AgendaComponent } from './components/agenda/agenda.component';
 
 export const routes: Routes = [
-    {path: 'home', component: InicioComponent},
-    {path: 'cita', component: CitaComponent},
-    {path: 'mascota', component: MascotaComponent},
-    {path: 'agenda', component: AgendaComponent},
-    {path: '**', pathMatch: 'full', redirectTo: 'home'}
+  { path: 'home', component: InicioComponent },
+  { path: 'cita', component: CitaComponent },
+  { path: 'mascota', component: MascotaComponent },
+  { path: 'agenda', component: AgendaComponent },
+  { path: 'agenda/:id', component: AgendaComponent },
+  { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
