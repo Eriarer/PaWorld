@@ -21,7 +21,14 @@
           class="small"
           [innerHTML]="'Ingreso ' + formatoFecha(mascota.fechaIngreso)"
         ></span>
-        <button mat-flat-button color="accent">Saber más</button>
+        <button
+          mat-flat-button
+          color="accent"
+          [routerLink]="['/agenda', mascota.id]"
+          routerLinkActive="router-link-active"
+        >
+          Saber más
+        </button>
       </mat-card-actions>
     </mat-card>
     } }

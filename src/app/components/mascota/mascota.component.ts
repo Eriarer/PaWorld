@@ -4,12 +4,12 @@ import { Mascota } from '../../interfaces/mascota';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { formatDate } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-mascota',
   standalone: true,
-  imports: [MatButtonModule, MatCardModule],
+  imports: [MatButtonModule, MatCardModule, RouterModule],
   templateUrl: './mascota.component.html',
   styleUrl: './mascota.component.css',
 })
