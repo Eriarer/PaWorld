@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #drawer
-    class="sidenav"
+    class="sidenav navbar"
     [ngClass]="{ hidden: !(isHandset$ | async) }"
     fixedInViewport="false"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -29,10 +29,14 @@
           <input
             class="form-control"
             type="search"
-            placeholder="Buscar"
-            aria-label="Buscar"
+            name="search"
+            placeholder="Perros o gatos??"
+            aria-label="Buscar entre perros y mascotas"
+            [(ngModel)]="search"
+            list="dataFiltro"
+            autocomplete="off"
           />
-          <button mat-icon-button type="submit">
+          <button mat-icon-button (click)="searchPet()">
             <mat-icon fontIcon="search"></mat-icon>
           </button>
         </form>
@@ -40,8 +44,12 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button mat-icon-button class="d-flex align-items-center">
+    <mat-toolbar color="primary" class="navbar">
+      <button
+        mat-icon-button
+        class="d-flex align-items-center"
+        routerLink="home"
+      >
         <img src="../../../assets/img/favIcon.webp" />
       </button>
       <span id="brandName">PaWorld</span>
@@ -80,16 +88,24 @@
         <input
           class="form-control"
           type="search"
-          placeholder="Buscar"
-          aria-label="Buscar"
+          name="search"
+          placeholder="Perros o gatos??"
+          aria-label="Buscar entre perros y mascotas"
+          [(ngModel)]="search"
+          list="dataFiltro"
+          autocomplete="off"
         />
-        <button mat-icon-button type="submit">
+        <button mat-icon-button (click)="searchPet()">
           <mat-icon fontIcon="search"></mat-icon>
         </button>
       </form>
       }
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <!-- CONTENIDO   -->
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<datalist id="dataFiltro">
+  <option value="Perro"></option>
+  <option value="Gato"></option>
+</datalist>
