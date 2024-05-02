@@ -36,7 +36,8 @@ export class NavbarComponent {
   private breakpointObserver = inject(BreakpointObserver);
   inicio:string = 'Inicio';
   pets:string = 'Macotas';
-  citas:string = 'Citas';
+  citasprevias:string = 'Citas Previas';
+  citasfuturas:string = 'Citas Futuras';
   agenda:string = 'Agendar Cita';
   
   inicioActive: boolean = true;

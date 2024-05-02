@@ -22,7 +22,10 @@
         <span [ngClass]="{ sideactive: agendaActive }">{{ agenda }}</span>
       </a>
       <a mat-list-item routerLink="/cita" class="sideItem">
-        <span [ngClass]="{ sideactive: citasActive }">{{ citas }}</span>
+        <span [ngClass]="{ sideactive: citasActive }">{{ citasprevias }}</span>
+      </a>
+      <a mat-list-item routerLink="/cita" class="sideItem">
+        <span [ngClass]="{ sideactive: citasActive }">{{ citasfuturas }}</span>
       </a>
       <span mat-list-item>
         <form class="d-flex flex-row align-items-center" role="search">
@@ -71,11 +74,17 @@
           {{ agenda }}
         </span>
       </a>
-      <a mat-button routerLink="/cita">
+      <a mat-button routerLink="/citaprevia">
         <span class="navItem mx-2" [ngClass]="{ active: citasActive }">
-          {{ citas }}
+          {{ citasprevias }}
         </span>
       </a>
+      <a mat-button routerLink="/citafutura">
+        <span class="navItem mx-2" [ngClass]="{ active: citasActive }">
+          {{ citasfuturas }}
+        </span>
+      </a>
+      
       <form class="d-flex flex-row align-items-center" role="search">
         <input
           class="form-control"
