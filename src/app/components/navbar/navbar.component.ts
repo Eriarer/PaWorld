@@ -70,12 +70,14 @@ export class NavbarComponent {
   constructor(
     private router: Router,
     public mascotasService: MascotasService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        const currentRoute = event.urlAfterRedirects.split('/')[1];
+        let currentRoute = event.urlAfterRedirects.split('/')[1];
+        // eliminar el ?= del query params
+        currentRoute = currentRoute.split('?')[0];
         this.updateActive(currentRoute);
       }
     });
@@ -86,7 +88,7 @@ export class NavbarComponent {
       this.petsActive =
       this.citasActive =
       this.agendaActive =
-      false;
+        false;
     switch (route) {
       case 'home':
         this.inicioActive = true;
@@ -105,8 +107,8 @@ export class NavbarComponent {
 
   searchPet() {
     // guardar en el parentFilter el filtro que aparece en el search
-    let parentFilter = this.filtros.find(
-      (filter) => this.search.toLocaleLowerCase().includes(filter)
+    let parentFilter = this.filtros.find((filter) =>
+      this.search.toLocaleLowerCase().includes(filter)
     );
     if (this.search.length <= 0) {
       Swal.fire({
@@ -129,5 +131,4 @@ export class NavbarComponent {
     this.infoParaMascotas.emit(parentFilter);
     this.search = '';
   }
-
 }
