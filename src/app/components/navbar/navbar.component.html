@@ -21,9 +21,27 @@
       <a mat-list-item routerLink="/agenda" class="sideItem">
         <span [ngClass]="{ sideactive: agendaActive }">{{ agenda }}</span>
       </a>
-      <a mat-list-item routerLink="/cita" class="sideItem">
-        <span [ngClass]="{ sideactive: citasActive }">{{ citas }}</span>
-      </a>
+      <!-- Boton desplegable -->
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title [ngClass]="{ sideactive: citasActive }">
+            {{ citasString }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLink="/citaprevia">
+          <span [ngClass]="{ sideactive: citasPreviaActive }">
+            {{ citaPrevia }}
+          </span>
+        </a>
+        <a mat-list-item routerLink="/citafutura">
+          <span [ngClass]="{ sideactive: citasFuturaActive }">
+            {{ citaFutura }}
+          </span>
+        </a>
+      </mat-expansion-panel>
       <span mat-list-item>
         <form class="d-flex flex-row align-items-center" role="search">
           <input
@@ -79,11 +97,26 @@
           {{ agenda }}
         </span>
       </a>
-      <a mat-button routerLink="/cita">
+      <!-- Boton desplegable -->
+      <a mat-button [mat-menu-trigger-for]="citas">
         <span class="navItem mx-2" [ngClass]="{ active: citasActive }">
-          {{ citas }}
+          {{ citasString }}
+          <mat-icon fontIcon="expand_more"></mat-icon>
         </span>
       </a>
+      <!-- Menu de citas -->
+      <mat-menu #citas="matMenu">
+        <a mat-menu-item routerLink="/citaprevia">
+          <span [ngClass]="{ sideactive: citasPreviaActive }">
+            {{ citaPrevia }}
+          </span>
+        </a>
+        <a mat-menu-item routerLink="/citafutura">
+          <span [ngClass]="{ sideactive: citasFuturaActive }">
+            {{ citaFutura }}
+          </span>
+        </a>
+      </mat-menu>
       <form class="d-flex flex-row align-items-center" role="search">
         <input
           class="form-control"

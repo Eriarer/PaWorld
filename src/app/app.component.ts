@@ -3,7 +3,8 @@ import { NavigationExtras, Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { MascotaComponent } from './components/mascota/mascota.component';
-import { CitaComponent } from './components/cita/cita.component';
+import { CitafuturaComponent } from './components/citafutura/citafutura.component';
+import { CitapreviaComponent } from './components/citaprevia/citaprevia.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { CitaComponent } from './components/cita/cita.component';
     NavbarComponent,
     InicioComponent,
     MascotaComponent,
-    CitaComponent,
+    CitafuturaComponent,
+    CitapreviaComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
