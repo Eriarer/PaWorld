@@ -56,6 +56,7 @@ export class NavbarComponent {
   agenda: string = 'Agendar Cita';
   citaPrevia: string = 'Cita Previa';
   citaFutura: string = 'Cita Futura';
+  acercaDe: string = 'Acerca de';
 
   inicioActive: boolean = true;
   petsActive: boolean = false;
@@ -63,15 +64,17 @@ export class NavbarComponent {
   agendaActive: boolean = false;
   citasPreviaActive: boolean = false;
   citasFuturaActive: boolean = false;
+  acercaDeActive: boolean = false;
 
   search: string = '';
   filtros: string[] = ['perro', 'gato'];
   @Output() infoParaMascotas = new EventEmitter<any>();
 
   panelOpenState = false;
+  customHandsetBreakpoint = '(max-width: 770px)';
 
   isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
+    .observe(this.customHandsetBreakpoint)
     .pipe(
       map((result) => result.matches),
       shareReplay()
@@ -100,6 +103,7 @@ export class NavbarComponent {
       this.agendaActive =
       this.citasPreviaActive =
       this.citasFuturaActive =
+      this.acercaDeActive =
         false;
     switch (route) {
       case 'home':
@@ -118,6 +122,9 @@ export class NavbarComponent {
         break;
       case 'agenda':
         this.agendaActive = true;
+        break;
+      case 'acercaDe':
+        this.acercaDeActive = true;
         break;
     }
   }

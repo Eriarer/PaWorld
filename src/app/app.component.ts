@@ -5,6 +5,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { MascotaComponent } from './components/mascota/mascota.component';
 import { CitafuturaComponent } from './components/citafutura/citafutura.component';
 import { CitapreviaComponent } from './components/citaprevia/citaprevia.component';
+import { AcercadeComponent } from './components/acercade/acercade.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { CitapreviaComponent } from './components/citaprevia/citaprevia.componen
     MascotaComponent,
     CitafuturaComponent,
     CitapreviaComponent,
+    AcercadeComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

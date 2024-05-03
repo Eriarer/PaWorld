@@ -15,6 +15,9 @@
       <a mat-list-item routerLink="/home" class="sideItem">
         <span [ngClass]="{ sideactive: inicioActive }">{{ inicio }}</span>
       </a>
+      <a mat-list-item routerLink="/acercaDe" class="sideItem">
+        <span [ngClass]="{ sideactive: acercaDeActive }">{{ acercaDe }}</span>
+      </a>
       <a mat-list-item routerLink="/mascota" class="sideItem">
         <span [ngClass]="{ sideactive: petsActive }">{{ pets }}</span>
       </a>
@@ -85,6 +88,11 @@
       <a mat-button routerLink="/home">
         <span class="navItem" [ngClass]="{ active: inicioActive }">
           {{ inicio }}
+        </span>
+      </a>
+      <a mat-button routerLink="/acercaDe">
+        <span class="navItem" [ngClass]="{ active: acercaDeActive }">
+          {{ acercaDe }}
         </span>
       </a>
       <a mat-button routerLink="/mascota">
