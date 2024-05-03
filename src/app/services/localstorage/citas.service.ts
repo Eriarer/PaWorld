@@ -14,9 +14,9 @@ export class CitasService {
   citas: Cita[]=[
     {
       id: 1,
-      fecha: new Date('2021-10-10'),
+      fecha: new Date('2024-5-3'),
       formatoFecha: '',
-      hora: {hours: 10, minutes: 30},
+      hora: {hours: 10  , minutes: 55},
       adoptante:{
         nombre: 'Juan',
         telefono: '1234567890',
