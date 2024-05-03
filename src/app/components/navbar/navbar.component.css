@@ -25,7 +25,9 @@
 }
 
 .navItem{
-  color: rgb(208, 218, 218);
+  color: rgb(181, 204, 204);
+  display: inline-flex;
+  align-items: center;
 }
 
 .active{
@@ -40,6 +42,12 @@ input[type="search"]{
   font-size: 15px;
   width: 150px;
   height: 35px;
+}
+
+.navbar{
+  z-index: 500 !important;
+  padding: 0;
+  margin: 0;
 }
 
 @media (max-width: 730px) {

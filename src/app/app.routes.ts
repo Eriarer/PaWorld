@@ -6,10 +6,11 @@ import { CitafuturaComponent } from './components/citafutura/citafutura.componen
 import { CitapreviaComponent } from './components/citaprevia/citaprevia.component';
 
 export const routes: Routes = [
-    {path: 'home', component: InicioComponent},
-    {path: 'citafutura', component: CitafuturaComponent},
-    {path: 'citaprevia', component: CitapreviaComponent},
-    {path: 'mascota', component: MascotaComponent},
-    {path: 'agenda', component: AgendaComponent},
-    {path: '**', pathMatch: 'full', redirectTo: 'home'}
+  { path: 'home', component: InicioComponent },
+  { path: 'citafutura', component: CitafuturaComponent },
+  { path: 'citaprevia', component: CitapreviaComponent },
+  { path: 'mascota', component: MascotaComponent },
+  { path: 'agenda', component: AgendaComponent },
+  { path: 'agenda/:id', component: AgendaComponent },
+  { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];

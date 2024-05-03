@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #drawer
-    class="sidenav"
+    class="sidenav navbar"
     [ngClass]="{ hidden: !(isHandset$ | async) }"
     fixedInViewport="false"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -21,21 +21,40 @@
       <a mat-list-item routerLink="/agenda" class="sideItem">
         <span [ngClass]="{ sideactive: agendaActive }">{{ agenda }}</span>
       </a>
-      <a mat-list-item routerLink="/cita" class="sideItem">
-        <span [ngClass]="{ sideactive: citasActive }">{{ citasprevias }}</span>
-      </a>
-      <a mat-list-item routerLink="/cita" class="sideItem">
-        <span [ngClass]="{ sideactive: citasActive }">{{ citasfuturas }}</span>
-      </a>
+      <!-- Boton desplegable -->
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title [ngClass]="{ sideactive: citasActive }">
+            {{ citasString }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLink="/citaprevia">
+          <span [ngClass]="{ sideactive: citasPreviaActive }">
+            {{ citaPrevia }}
+          </span>
+        </a>
+        <a mat-list-item routerLink="/citafutura">
+          <span [ngClass]="{ sideactive: citasFuturaActive }">
+            {{ citaFutura }}
+          </span>
+        </a>
+      </mat-expansion-panel>
       <span mat-list-item>
         <form class="d-flex flex-row align-items-center" role="search">
           <input
             class="form-control"
             type="search"
-            placeholder="Buscar"
-            aria-label="Buscar"
+            name="search"
+            placeholder="Perros o gatos??"
+            aria-label="Buscar entre perros y mascotas"
+            [(ngModel)]="search"
+            list="dataFiltro"
+            autocomplete="off"
           />
-          <button mat-icon-button type="submit">
+          <button mat-icon-button (click)="searchPet()">
             <mat-icon fontIcon="search"></mat-icon>
           </button>
         </form>
@@ -43,8 +62,12 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button mat-icon-button class="d-flex align-items-center">
+    <mat-toolbar color="primary" class="navbar">
+      <button
+        mat-icon-button
+        class="d-flex align-items-center"
+        routerLink="home"
+      >
         <img src="../../../assets/img/favIcon.webp" />
       </button>
       <span id="brandName">PaWorld</span>
@@ -74,31 +97,48 @@
           {{ agenda }}
         </span>
       </a>
-      <a mat-button routerLink="/citaprevia">
+      <!-- Boton desplegable -->
+      <a mat-button [mat-menu-trigger-for]="citas">
         <span class="navItem mx-2" [ngClass]="{ active: citasActive }">
-          {{ citasprevias }}
+          {{ citasString }}
+          <mat-icon fontIcon="expand_more"></mat-icon>
         </span>
       </a>
-      <a mat-button routerLink="/citafutura">
-        <span class="navItem mx-2" [ngClass]="{ active: citasActive }">
-          {{ citasfuturas }}
-        </span>
-      </a>
-      
+      <!-- Menu de citas -->
+      <mat-menu #citas="matMenu">
+        <a mat-menu-item routerLink="/citaprevia">
+          <span [ngClass]="{ sideactive: citasPreviaActive }">
+            {{ citaPrevia }}
+          </span>
+        </a>
+        <a mat-menu-item routerLink="/citafutura">
+          <span [ngClass]="{ sideactive: citasFuturaActive }">
+            {{ citaFutura }}
+          </span>
+        </a>
+      </mat-menu>
       <form class="d-flex flex-row align-items-center" role="search">
         <input
           class="form-control"
           type="search"
-          placeholder="Buscar"
-          aria-label="Buscar"
+          name="search"
+          placeholder="Perros o gatos??"
+          aria-label="Buscar entre perros y mascotas"
+          [(ngModel)]="search"
+          list="dataFiltro"
+          autocomplete="off"
         />
-        <button mat-icon-button type="submit">
+        <button mat-icon-button (click)="searchPet()">
           <mat-icon fontIcon="search"></mat-icon>
         </button>
       </form>
       }
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <!-- CONTENIDO   -->
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<datalist id="dataFiltro">
+  <option value="Perro"></option>
+  <option value="Gato"></option>
+</datalist>
