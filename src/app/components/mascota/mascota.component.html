@@ -11,7 +11,7 @@
       />
       <mat-card-header class="text-center">
         <mat-card-title>{{ mascota.raza }}</mat-card-title>
-        <mat-card-subtitle>Raza</mat-card-subtitle>
+        <mat-card-subtitle>Sexo: {{ mascota.sexo }} </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p [innerHTML]="mascota.descripcion"></p>
@@ -19,15 +19,16 @@
       <mat-card-actions>
         <span
           class="small"
-          [innerHTML]="'Ingreso ' + formatoFecha(mascota.fechaIngreso)"
+          [innerHTML]="'Ingreso</br>' + formatoFecha(mascota.fechaIngreso)"
         ></span>
         <button
           mat-flat-button
           color="accent"
           [routerLink]="['/agenda', mascota.id]"
           routerLinkActive="router-link-active"
+          class="ms-auto"
         >
-          Saber más
+          Adoptar
         </button>
       </mat-card-actions>
     </mat-card>
