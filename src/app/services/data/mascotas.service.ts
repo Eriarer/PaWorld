@@ -117,7 +117,7 @@ export class MascotasService {
     {
       id: 10,
       edad: 2,
-      color: 'Manchado de colores cafe negro y blanco',
+      color: 'Cafe negro y blanco',
       tipo: 'gato',
       raza: 'Bengal',
       fechaIngreso: new Date('2024-01-10'),
