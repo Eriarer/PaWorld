@@ -12,12 +12,24 @@
       </div>
       <div id="petInfo">
         <h2 style="font-size: 1.2em">{{ mascota.raza }}</h2>
-        <p>Sexo: {{ mascota.sexo }}</p>
+        <!-- Imprimir sexo con icono correspondiente -->
+        <div class="divSex">
+          <p>Sexo: {{ mascota.sexo }}</p>
+          @if(mascota.sexo == 'Macho') {
+          <i class="bi bi-gender-male"></i>
+          }@else{
+          <i class="bi bi-gender-female"></i>
+          }
+        </div>
+
         <div class="petInfoRow">
-          <p class="dato">Edad:{{ mascota.edad }} año(s)</p>
+          <p class="dato">Edad: {{ mascota.edad }} año(s)</p>
           <p class="dato">Color: {{ mascota.color }}</p>
         </div>
-        <p>Tiempo en el refugio: {{ tiempoRefugio }} días</p>
+        <p>
+          Tiempo en el refugio <i class="bi bi-clock"></i>:
+          {{ tiempoRefugio }} días
+        </p>
       </div>
     </div>
 
