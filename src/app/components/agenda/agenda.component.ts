@@ -35,6 +35,7 @@ import 'moment/locale/fr';
 import { CitasService } from '../../services/localstorage/citas.service';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 // Define custom date format for fr locale
 export const FR_DATE_FORMATS = {
@@ -74,6 +75,7 @@ export const FR_DATE_FORMATS = {
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
+    CommonModule,
   ],
   templateUrl: './agenda.component.html',
   styleUrl: './agenda.component.css',
@@ -100,6 +102,28 @@ export class AgendaComponent {
   dataAdoptante!: Adoptante;
   dataCita!: Cita;
 
+  public horasOcupadas: string[] = [];
+  public horas: string[] = [
+    '10:00',
+    '10:30',
+    '11:00',
+    '11:30',
+    '12:00',
+    '12:30',
+    '13:00',
+    '13:30',
+    '14:00',
+    '14:30',
+    '15:00',
+    '15:30',
+    '16:00',
+    '16:30',
+    '17:00',
+    '17:30',
+    '18:00',
+    '18:30',
+  ];
+
   nombreAdop = new FormControl('', [
     Validators.required,
     Validators.pattern('[a-zA-Z ]*'),
@@ -112,8 +136,9 @@ export class AgendaComponent {
     Validators.maxLength(10),
   ]);
   errorMessage2 = '';
-  selectedDate: Date | null = null;
+  selectedDate: any;
   selectedHour: string | undefined;
+  selectedFecha: any;
 
   constructor(
     public mascotasService: MascotasService,
@@ -208,6 +233,9 @@ export class AgendaComponent {
 
   onDateChange(event: MatDatepickerInputEvent<Date>) {
     this.selectedDate = event.value;
+    console.log('Ya hay horas ocupadas' + this.horasOcupadas);
+    this.horasOcupadas = [];
+    this.actualizaHorasDisp();
   }
 
   //Función para guardar datos de la cita en el localstorage con el service citas
@@ -253,6 +281,44 @@ export class AgendaComponent {
         text: 'La cita ha sido agendada correctamente',
         icon: 'success',
       });
+      this.clearFields();
     }
+  }
+
+  //Obtener citas del localstorage,
+  actualizaHorasDisp() {
+    let citas = this.citasService.getCitas();
+    citas.forEach((cita) => {
+      //convirtiendo a formato Date
+      let selectedDate2 = this.selectedDate
+        ? new Date(this.selectedDate)
+        : null;
+      let fechaCita = new Date(cita.fecha);
+
+      if (
+        selectedDate2 &&
+        selectedDate2.getDate() == fechaCita.getDate() &&
+        selectedDate2.getMonth() == fechaCita.getMonth() &&
+        selectedDate2.getFullYear() == fechaCita.getFullYear()
+      ) {
+        let horaCita = cita.hora.hours.toString();
+        let minCita = cita.hora.minutes.toString();
+        if (minCita === '0') {
+          minCita = '00';
+        }
+        this.horasOcupadas.push(horaCita + ':' + minCita);
+      }
+    });
+    console.log(this.horasOcupadas);
+  }
+
+  //borrando el contenido de los campos input
+  clearFields() {
+    this.nombreAdop.setValue('');
+    this.telAdop.setValue('');
+    this.selectedDate = this.selectedFecha = this.selectedHour = '';
+    //Eliminar la flag de touched para eliminar el error
+    this.nombreAdop.markAsUntouched();
+    this.telAdop.markAsUntouched();
   }
 }
