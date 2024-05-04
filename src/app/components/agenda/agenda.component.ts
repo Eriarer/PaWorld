@@ -306,10 +306,13 @@ export class AgendaComponent {
         if (minCita === '0') {
           minCita = '00';
         }
-        this.horasOcupadas.push(horaCita + ':' + minCita);
+        let horaCita2 = horaCita + ':' + minCita;
+        this.horasOcupadas.push(horaCita2);
+        if (this.selectedHour == horaCita2) {
+          this.selectedHour = '';
+        }
       }
     });
-    console.log(this.horasOcupadas);
   }
 
   //borrando el contenido de los campos input
