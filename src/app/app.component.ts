@@ -5,6 +5,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { MascotaComponent } from './components/mascota/mascota.component';
 import { CitaComponent } from './components/cita/cita.component';
 import { AgendaComponent } from './components/agenda/agenda.component';
+import { CitasService } from './services/localstorage/citas.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ export class AppComponent {
   title = 'PaWorld';
   infoDesdeNavbar: any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public citasService: CitasService) {}
 
   recibirInfoEnMascotas(info: any) {
     const navigationExtras: NavigationExtras = {
