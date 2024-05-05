@@ -1,9 +1,19 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .contenedor {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  padding: 2em;
+  column-gap: 2em;
 }
 
 .petInfoRow {
@@ -31,8 +41,10 @@
 #SecAdop, #dataPet{
   width: 50%;
   height: 50%;
-  margin-left: 5%;
+  box-shadow: 0 0 1em 0.5em rgba(0, 0, 0, 0.116);
+  border-radius: 20px;
 }
+
 
 #SecAdop,
 .dataAdop{
@@ -44,19 +56,21 @@
 
 #SecAdop{
   border-radius: 20px 20px 20px 20px;
-  border: #4054b4 7px double;
-  background-color: rgba(0, 0, 0, 0.313);
+  border: #4054b4 5px double;
+  background-color: rgb(207, 207, 207);
 }
 
 .dataAdop{
-    color: #ff4081;
-    text-shadow: 0px 0px 5px white;
+    color: gray;
   &>h2{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
     font-size: 2em;
   }
 }
 
+.fecha{
+  color: rgb(39, 38, 38);
+}
 
 .botones{
   margin: 1rem;
@@ -70,7 +84,7 @@
   font-size: 1.2em;
   padding: 10px;
   border-radius:0 0 20px 20px;
-  background-color: rgba(0, 0, 0, 0.313);
+  background-color: rgb(207, 207, 207);
   color: black;
   border-top: #ff4081 5px solid;
 }
@@ -102,7 +116,7 @@
     object-fit: scale-down;
     width: 100%;
     height: 100%;
-    border-radius: 20px 20px 0 0;
+    border-radius: 0;
   }
 }
 
@@ -117,8 +131,8 @@
   z-index: 4;
   /* que no se pueda editar con texto */
   user-select: none;
-  width: 3vw;
-  height: 3vw;
+  width: 2rem;
+  height: 2rem;
   transition: all 0.3s ease-in-out;
   opacity: 0.8;
 
@@ -157,33 +171,41 @@
   transform: translateY(-50%);
 }
 
-@media (max-width: 730px) {
+@media (max-width: 960px) {
   .contenedor {
     flex-direction: column;
   }
+
+  #SecAdop, #dataPet{
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+  }
+
+  .slide-item {
+    padding: 15px;
+  }
+
+  #dataPet{
+    margin-bottom: 3rem;
+  }
 }
 
-@media (max-width: 400px){
-    .slides {
-        height: 100px;
-    }
-}
-
-@media (min-width: 400px) and (max-width: 600px) {
-    .slides {
-        height: 200px;
-    }
-}
-
-@media (min-width: 600px) and (max-width: 960px) {
+@media (max-width: 600px) {
     .slides {
         height: 250px;
     }
 }
 
-@media (min-width: 960px) and (max-width: 1290px){
+@media (min-width: 600px) and (max-width: 960px) {
     .slides {
         height: 300px;
+    }
+}
+
+@media (min-width: 960px) and (max-width: 1290px){
+    .slides {
+        height: 400px;
     }
 }
 

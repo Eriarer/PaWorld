@@ -1,5 +1,10 @@
 <div class="container">
-  <div class="masonry">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Elige a tu amigo peludo</h1>
+    </div>
+  </div>
+  <div class="masonry mb-5">
     @for(mascota of mascotas; track mascota){ @if(infoDesdeNavbar == null ||
     mascota.tipo == infoDesdeNavbar.toLowerCase()){
     <mat-card class="masonry-card">

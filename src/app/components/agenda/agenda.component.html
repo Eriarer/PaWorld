@@ -1,4 +1,4 @@
-<div class="container">
+<div class="wrapper">
   <div class="contenedor">
     <div id="dataPet">
       <div class="slider">
@@ -35,7 +35,7 @@
     <div id="SecAdop">
       <div class="dataAdop">
         <mat-divider></mat-divider>
-        <br/>
+        <br />
         <h2 class="text-center">Ingresa tus datos</h2>
         <mat-form-field>
           <mat-label>Nombre Completo</mat-label>
@@ -77,7 +77,7 @@
               readonly="true"
               [(ngModel)]="selectedFecha"
             />
-            <mat-hint>DD/MM/AAAA</mat-hint>
+            <mat-hint class="fecha">DD/MM/AAAA</mat-hint>
             <mat-datepicker-toggle
               matIconSuffix
               [for]="picker"
