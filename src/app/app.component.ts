@@ -16,6 +16,7 @@ import { CitasService } from './services/localstorage/citas.service';
     InicioComponent,
     MascotaComponent,
     CitaComponent,
+    AgendaComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -24,7 +25,7 @@ export class AppComponent {
   title = 'PaWorld';
   infoDesdeNavbar: any;
 
-  constructor(private router: Router, public citasService: CitasService) {}
+  constructor(private router: Router, public citas: CitasService) {}
 
   recibirInfoEnMascotas(info: any) {
     const navigationExtras: NavigationExtras = {
