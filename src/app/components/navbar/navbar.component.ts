@@ -21,7 +21,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
-import 'sweetalert2/src/sweetalert2.scss';
 import Swal from 'sweetalert2';
 import { MascotasService } from '../../services/data/mascotas.service';
 
