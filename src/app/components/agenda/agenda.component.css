@@ -28,6 +28,11 @@
   }
 }
 
+#SecAdop, #dataPet{
+  width: 50%;
+  height: 50%;
+  margin-left: 5%;
+}
 
 #SecAdop,
 .dataAdop{
@@ -37,8 +42,24 @@
   flex-direction: column;
 }
 
-#dataPet, #SecAdop{
-    width: 50%;
+#SecAdop{
+  border-radius: 20px 20px 20px 20px;
+  border: #4054b4 7px double;
+  background-color: rgba(0, 0, 0, 0.313);
+}
+
+.dataAdop{
+    color: #ff4081;
+    text-shadow: 0px 0px 5px white;
+  &>h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2em;
+  }
+}
+
+
+.botones{
+  margin: 1rem;
 }
 
 #petInfo {
@@ -46,10 +67,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 1.1em;
-  padding-top: 10px;
-  border-radius: 0 0 20px 20px;
-  background-color: #3e51b425;
+  font-size: 1.2em;
+  padding: 10px;
+  border-radius:0 0 20px 20px;
+  background-color: rgba(0, 0, 0, 0.313);
+  color: black;
+  border-top: #ff4081 5px solid;
 }
 
 .slider {
@@ -70,12 +93,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0 ;
   overflow: hidden;
   user-select: none;
-  background: #3e51b425;
-  padding-top: 10px;
-
+  padding: 43px;
+  background-color: #4054b4;
   & > img {
     object-fit: scale-down;
     width: 100%;

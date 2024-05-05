@@ -12,7 +12,6 @@
       </div>
       <div id="petInfo">
         <h2 style="font-size: 1.2em">{{ mascota.raza }}</h2>
-        <!-- Imprimir sexo con icono correspondiente -->
         <div class="divSex">
           <p>Sexo: {{ mascota.sexo }}</p>
           @if(mascota.sexo == 'Macho') {
@@ -36,8 +35,8 @@
     <div id="SecAdop">
       <div class="dataAdop">
         <mat-divider></mat-divider>
-        <br />
-        <h2 class="text-center"><strong>Ingresa tus datos</strong></h2>
+        <br/>
+        <h2 class="text-center">Ingresa tus datos</h2>
         <mat-form-field>
           <mat-label>Nombre Completo</mat-label>
           <input
@@ -91,7 +90,6 @@
           <mat-form-field>
             <mat-label>Horario</mat-label>
             <mat-select [(ngModel)]="selectedHour">
-              <!-- las opciones del desplegable se actualizarán siempre que se cambie la fecha -->
               <mat-option
                 *ngFor="let hour of horas"
                 [value]="hour"
@@ -102,7 +100,7 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="mt-3">
+      <div class="mt-3 botones">
         <button
           id="btnDeleteData"
           mat-flat-button
