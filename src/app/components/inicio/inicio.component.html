@@ -1,3 +1,49 @@
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active c-item">
+            <img src="../../../assets/img/carousel/1.jpg" class="d-block w-100 c-img" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Encuentra a tu nuevo mejor amigo</h1>
+                <p>Explora la alegría de adoptar una mascota que espera un hogar lleno de amor.</p>
+            </div>
+        </div>
+        <div class="carousel-item c-item">
+            <img src="../../../assets/img/carousel/2.jpg" class="d-block w-100 c-img" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Cambia una vida, adopta</h1>
+                <p>Adopta una mascota y cambia su vida para siempre.</p>
+            </div>
+        </div>
+        <div class="carousel-item c-item">
+            <img src="../../../assets/img/carousel/3.jpg" class="d-block w-100 c-img" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Un hogar para cada corazón</h1>
+                <p>Encuentra a tu compañero ideal y dale un hogar lleno de amor.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="about">
+    <h1>PaWorld es más que un refugio</h1>
     <div class="video">
         <iframe width="560" height="315" [src]="video | domseguro: 'https://www.youtube.com/embed/'"
             title="YouTube video player" frameborder="0"
@@ -5,3 +51,38 @@
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
         </iframe>
     </div>
+    <p>Nuestro refugio se dedica a rescatar, rehabilitar y reubicar gatos y perros que han sido desplazados, maltratados
+        o abandonados. En PaWorld, cada animal es tratado con el cuidado y la dignidad que merece, preparándolos para
+        una nueva vida en hogares amorosos. </p>
+</div>
+
+<div class="cards-container">
+    <h1>¿Por qué adoptar?</h1>
+    <div class="cards">
+        <div class="card" style="width: 18rem;">
+            <img src="../../../assets/img/pets/1.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h2 class="card-title">Salva una vida</h2>
+                <p class="card-text">Adoptar una mascota es una de las decisiones más gratificantes que puedes tomar. No
+                    solo estás salvando una vida, sino que también estás ganando un compañero leal. </p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="../../../assets/img/pets/8.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h2 class="card-title">Cambia una vida</h2>
+                <p class="card-text">Adoptar una mascota es una oportunidad para cambiar una vida para siempre. Dale a
+                    un
+                    animal la oportunidad de tener un hogar lleno de amor y cuidado.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="../../../assets/img/pets/3.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h2 class="card-title">Amor Incondicional</h2>
+                <p class="card-text">Adoptar una mascota significa recibir amor incondicional y compañía para toda la
+                    vida. Las mascotas son una fuente inagotable de amor y alegría en tu hogar.</p>
+            </div>
+        </div>
+    </div>
+</div>
