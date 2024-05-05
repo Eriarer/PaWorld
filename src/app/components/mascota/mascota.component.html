@@ -24,7 +24,9 @@
       <mat-card-actions>
         <span
           class="small"
-          [innerHTML]="'Ingreso</br>' + formatoFecha(mascota.fechaIngreso)"
+          [innerHTML]="
+            'Ingreso</br>' + mascota.fechaIngreso | date : 'dd/MM/yyyy'
+          "
         ></span>
         <button
           mat-flat-button

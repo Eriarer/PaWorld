@@ -30,12 +30,7 @@ export class AppComponent {
   constructor(private router: Router, public citas: CitasService) {}
 
   recibirInfoEnMascotas(info: any) {
-    const navigationExtras: NavigationExtras = {
-      queryParams: {
-        infoDesdeNavbar: info,
-      },
-    };
-
-    this.router.navigate(['/mascota'], navigationExtras);
+    // /{ path: 'mascota/:filter', component: MascotaComponent },
+    this.router.navigate(['/mascota', info]);
   }
 }
