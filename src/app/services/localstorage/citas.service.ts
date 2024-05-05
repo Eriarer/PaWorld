@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
   providedIn: 'root',
 })
 export class CitasService {
-  urlAPI: string = 'https://arraymascotas.free.beeceptor.com';
+  urlAPI: string = 'https://paworld.free.beeceptor.com';
   citas: Cita[] = [];
 
   constructor(private http: HttpClient) {
