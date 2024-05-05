@@ -28,8 +28,10 @@ h2 {
 
 .about {
     padding: 2rem;
-    text-align: center;
+    padding-left: 8rem;
+    padding-right: 8rem;
     font-size: 1rem;
+    text-align: center;
 }
 
 .cards-container{
@@ -44,5 +46,34 @@ h2 {
 }
 
 .card-body {
+    text-align: center;
+}
+
+.aboutus {
+    padding: 2rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    font-size: 1rem;   
+}
+
+.aboutus h1 {
+    text-align: center;
+}
+
+.aboutus img {
+    padding-right: 2rem;
+}
+
+.integrante {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    align-items: center;
+    text-align: justify;
+}
+
+.legal {
+    padding: 2rem;
+    font-size: 1rem;
     text-align: center;
 }
