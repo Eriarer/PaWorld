@@ -21,6 +21,11 @@
   justify-content: space-between;
 }
 
+.descripcion{
+  padding:0px 20%;
+  text-align: justify;
+}
+
 .dato {
   display: flex;
   justify-content: center;
