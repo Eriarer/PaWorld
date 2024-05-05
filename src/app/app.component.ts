@@ -16,10 +16,10 @@ import { CitapreviaComponent } from './components/citaprevia/citaprevia.componen
     NavbarComponent,
     InicioComponent,
     MascotaComponent,
-    CitaComponent,
+    CitafuturaComponent,
+    CitapreviaComponent,
     AgendaComponent,
   ],
-  imports: [RouterOutlet, NavbarComponent, InicioComponent, MascotaComponent, CitafuturaComponent, CitapreviaComponent,AgendaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

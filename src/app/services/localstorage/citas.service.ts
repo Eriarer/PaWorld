@@ -78,6 +78,7 @@ export class CitasService {
     return {
       id: this.citas.length + 1,
       fecha: new Date(),
+      formatoFecha: '', // Add the 'formatoFecha' property here
       hora: { hours: 0, minutes: 0 },
       adoptante: {
         nombre: '',
