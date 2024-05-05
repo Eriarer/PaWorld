@@ -18,6 +18,8 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 import 'sweetalert2/src/sweetalert2.scss';
 import Swal from 'sweetalert2';
@@ -39,6 +41,8 @@ import { MascotasService } from '../../services/data/mascotas.service';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatExpansionModule,
+    MatMenuModule,
     RouterModule,
     CommonModule,
     FormsModule,
@@ -48,17 +52,23 @@ export class NavbarComponent {
   private breakpointObserver = inject(BreakpointObserver);
   inicio: string = 'Inicio';
   pets: string = 'Macotas';
-  citas: string = 'Citas';
+  citasString: string = 'Citas';
   agenda: string = 'Agendar Cita';
+  citaPrevia: string = 'Cita Previa';
+  citaFutura: string = 'Cita Futura';
 
   inicioActive: boolean = true;
   petsActive: boolean = false;
   citasActive: boolean = false;
   agendaActive: boolean = false;
+  citasPreviaActive: boolean = false;
+  citasFuturaActive: boolean = false;
 
   search: string = '';
   filtros: string[] = ['perro', 'gato'];
   @Output() infoParaMascotas = new EventEmitter<any>();
+
+  panelOpenState = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -88,13 +98,20 @@ export class NavbarComponent {
       this.petsActive =
       this.citasActive =
       this.agendaActive =
+      this.citasPreviaActive =
+      this.citasFuturaActive =
         false;
     switch (route) {
       case 'home':
         this.inicioActive = true;
         break;
-      case 'cita':
+      case 'citaprevia':
         this.citasActive = true;
+        this.citasPreviaActive = true;
+        break;
+      case 'citafutura':
+        this.citasActive = true;
+        this.citasFuturaActive = true;
         break;
       case 'mascota':
         this.petsActive = true;
