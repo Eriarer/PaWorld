@@ -85,7 +85,8 @@ export class AgendaComponent {
   nombre: string = '';
   telefono = 0;
   //datos de la mascota
-  @Input() mascota!: Mascota;
+  @Input() id!: any;
+  mascota!: Mascota;
 
   tiempoRefugio!: number;
 
@@ -145,12 +146,16 @@ export class AgendaComponent {
     public citasService: CitasService,
     public activatedRoute: ActivatedRoute
   ) {
+    // conseguir el ID de la url /agenda/:id
     this.activatedRoute.params.subscribe((params) => {
-      this.mascota = this.mascotasService.getMascotaById(params['id']);
-      if (this.mascota == null) {
-        this.mascota = this.mascotasService.getMascotaById(1);
-      }
+      this.id = params['id'];
     });
+    if (this.id == undefined) {
+      this.mascota = this.mascotasService.getMascotaById(1);
+    } else {
+      this.mascota = this.mascotasService.getMascotaById(Number(this.id));
+    }
+
     let fechaActual = new Date();
     //La fecha mínima es la fecha actual +1
     this.minDate = new Date(

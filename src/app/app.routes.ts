@@ -12,6 +12,6 @@ export const routes: Routes = [
   { path: 'mascota', component: MascotaComponent },
   { path: 'mascota/:filter', component: MascotaComponent },
   { path: 'agenda', component: AgendaComponent },
-  { path: 'agenda/:id', component: AgendaComponent, data: { id: 'id' } },
+  { path: 'agenda/:id', component: AgendaComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
